@@ -1,0 +1,163 @@
+:host{
+    // color: #000;
+}
+.container {
+    margin-left: 0;
+
+    .videocontainer {
+        position: relative;
+        background-color: var(--videocontainer-bg-color);
+        border-radius: 5px;
+        box-shadow: var(--videobox-shadow);
+        border: 1px solid white;
+
+        .videoinfo {
+            position: relative;
+            padding: 0 5px;
+            border-radius: 20px;
+            z-index: 301;
+
+
+            .lastalarm {
+                position: absolute;
+                background-color: var(--videocontainer-bg-color);
+                top: -1em;
+                z-index: 2;
+                border-radius: 5px;
+                padding: 0px 6px;
+
+                .alarm {
+                    display: none;
+                }
+            }
+
+            .counter,
+            .zero {
+                font-weight: bold;
+                font-size: 2.8em;
+                color: var(--msg-counter-color);
+                margin-right: 10px;
+            }
+
+            .counter {
+                .small {
+                    font-size: 0.5em;
+                }
+            }
+            .zero {
+                font-size: 1.7em;
+            }
+        }
+
+        .bullet {
+            position: absolute;
+            background-color: white;
+            padding: 0px 6px;
+            border-radius: 20px;
+            z-index: 2;
+            top: 35px;
+            left: 25px;
+            opacity: .9;
+            color: #000;
+        }
+
+        &.alarm {
+            ::ng-deep {
+                video {
+                    border: 5px solid var(--alarm-color);
+                }
+            }
+
+            .bullet {
+                color: #000;
+            }
+
+            .lastalarm {
+                .time {
+                    display: none;
+                }
+
+                .alarm {
+                    display: inline !important;
+                    color: var(--alarm-color);
+                }
+            }
+
+            .counter {
+                color: var(--alarm-color) !important;
+            }
+        }
+    }
+
+    button.step {
+        border-radius: 50%;
+        font-size: 2em;
+        font-weight: bold;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 12px;
+    }
+}
+
+.buttonlist {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    max-width: 50%;
+
+    &.full {
+        max-width: 100%;
+    }
+
+    button {
+        width: 40%;
+    }
+}
+
+.button-style {
+    color: white;
+
+    &.red {
+        background-color: rgb(223, 5, 5);
+    }
+
+    &.green {
+        background-color: green;
+    }
+
+    &.yellow {
+        background-color: yellow;
+        color: black
+    }
+
+    &.orange {
+        background-color: orange;
+    }
+
+    &:disabled {
+        font-size: .8em;
+        background-color: var(--disabled-button-container-color) !important;
+        color: var(--disabled-button-text-color) !important;
+    }
+
+    &.tsh {
+        border-radius: 30%;
+        // width: auto !important;
+    }
+}
+
+select {
+    &.grey {
+        color: #666;
+        option {
+            color: black;
+        }
+    }
+
+    &.form-control {
+        width: 44%;
+    }
+}

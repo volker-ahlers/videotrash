@@ -1,0 +1,111 @@
+p-columnfilter {
+    button {
+        border-radius: 20%;
+        color: white;
+        background-color: transparent !important;
+    }
+}
+
+.p-dropdown-items-wrapper {
+    border: 1px solid var(--filter-text-color);
+    border-bottom-left-radius: 10px;
+}
+
+
+.p-checkbox-box {
+    background-color: transparent;
+    border: none;
+
+    .p-icon-wrapper {
+        background-color: transparent;
+
+    }
+}
+
+p-dropdown * {
+    background-color: #1d4477;
+    color: white;
+    font-weight: bold;
+    border: none;
+    box-shadow: none;
+
+    p-dropdownitem li {
+        &.p-focus {
+            border-radius: 10px;
+            background-color: #229777;
+        }
+
+        &:hover {
+            border-radius: 10px;
+            background-color: var(--filter-item-hover-color);
+        }
+
+        span {
+            background-color: transparent;
+        }
+    }
+}
+
+.p-overlay {
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    overflow: hidden;
+}
+
+p-sorticon svg {
+    color: white;
+}
+
+.p-datatable-wrapper {
+    min-height: 400px;
+    background-color: var(--table-bg-color);
+}
+
+.p-column-filter-operator,
+.p-column-filter-constraint,
+.p-column-filter-add-rule,
+.p-button-label,
+.p-element,
+.p-column-filter-buttonbar,
+.p-multiselect {
+    background-color: var(--filter-bg-color);
+    color: var(--filter-text-color);
+    &.p-inputwrapper {
+        border: none;
+    }
+
+    .p-multiselect-trigger,
+    .p-placeholder {
+        color: var(--filter-text-color);
+    }
+}
+
+.p-column-filter-overlay,
+.p-multiselect-panel {
+    border: 2px solid var(--filter-text-color);
+    background-color: var(--filter-bg-color);
+
+    .p-multiselect-items .p-multiselect-item,
+    .p-multiselect-header,
+    .p-multiselect-filter {
+        background-color: var(--filter-bg-color);
+        color: var(--filter-text-color);
+
+        &:hover {
+            background-color: var(--filter-item-hover-color);
+        }
+    }
+
+    .p-multiselect-filter-icon {
+        color: var(--filter-multiselect-icon-color);
+    }
+
+    .p-multiselect-empty-message {
+        color: var(--filter-text-color);
+    }
+}
+
+.p-column-filter-overlay-menu .p-column-filter-constraint,
+.p-column-filter-operator {
+    border-bottom: 1px solid #bbb;
+}

@@ -1,0 +1,20 @@
+<div class="d-flex align-items-center container" [class.selected]="showInfo === 'object' && selectedMessage()?.message_id === message.message_id">
+
+    <div class="sensor_label d-flex align-items-center justify-content-center background" [ngClass]="getObjectColor()"><div>{{ message.sensor_label | uppercase}}</div></div>
+
+    <div class="text">
+        <!-- für testzwecke -->
+        <!-- <div>step {{ step }} objectStepSig {{ objectStepSig()}} {{ message.state }}</div> -->
+        <!-- <div class="percent">{{ (message.object.confidence * 100).toFixed(2) }}%</div> -->
+        <div>{{ message.object.label }}
+            <div *ngIf="parseDate(message.timestamp); else b">{{ message.timestamp | date:'shortTime'
+                }}</div>
+            </div>
+    </div>
+    <button mat-raised-button class="button-style primary" color="primary" attr.aria-label="Meldung prüfen" (click)="checkMessage()">Meldung prüfen</button>
+    <!-- <button mat-raised-button class="button-style secondary" color="secondary" disabled >Wird geprüft</button> -->
+</div>
+
+<ng-template #b>
+    <span class="text">{{ message.timestamp }}</span>
+</ng-template>

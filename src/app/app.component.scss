@@ -1,0 +1,70 @@
+:host {
+  height: 100%;
+  display: block;
+}
+
+.header-spacer {
+  flex: 1 1 auto;
+  min-width: 1%;
+}
+
+.mat-mdc-list-item {
+  padding: 10px 50px 10px 20px;
+
+  &:hover {
+    background-color: lightgrey;
+  }
+}
+
+::ng-deep .mat-sidenav-content {
+  padding: 10px 0 0 10px;
+}
+
+.mat-toolbar {
+  position: relative;
+
+  &-row {
+    >button {
+      background-color: transparent;
+      border: none;
+      color: white;
+
+      .mat-icon {
+        font-size: 30px;
+        position: relative;
+        bottom: 7px;
+      }
+    }
+  }
+
+  .the-switcher {
+    float: right;
+  }
+}
+
+.mat-sidenav-container {
+  min-height: calc(100% - var(--mat-toolbar-standard-height));
+  padding: 0 10px
+}
+
+.mat-drawer-content {
+  overflow: visible;
+}
+
+.label {
+  margin-left: 20px;
+}
+
+.main {
+  margin-right: 20px;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.menu-spacer {
+  margin: 0 1%;
+}
+
+.person {
+  overflow: visible !important;
+}

@@ -1,0 +1,8 @@
+src/assets/videos
+src/assets/streams
+src/assets/ts
+src/streams
+dist/
+node_modules/
+node_modules*
+documentation/

@@ -1,0 +1,18 @@
+
+az account clear 
+az login 
+az acr login --name zc01xyumacrcore5c30c1np00.azurecr.io
+
+docker build -t wrs-video-app:v0 .
+docker build -t wrs-video-app:v1 -f Docker/Dockerfile .
+// when it is caused permission problems try it with no . at the end
+
+cd Docker
+docker run -d -p 8081:80 wrs-video-app:v0
+
+cd ../../Docker
+alle zusammen:
+docker-compose -f ./docker-compose-local.yml down
+docker-compose -f ./docker-compose-local.yml pull
+docker-compose -f ./docker-compose-local.yml -p docker up -d  
+docker-compose -f ./docker-compose-local.yml -p docker up -d frontend backend

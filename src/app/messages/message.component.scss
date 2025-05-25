@@ -1,0 +1,84 @@
+.container {
+    display: block;
+    border-radius: 7px;
+    background-color: #fff;
+    box-shadow: 0px 5px 15px #777;
+    margin: 2% 0;
+    border: 1px solid lightblue;
+
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    padding-right: 10px;
+    transition: transform .5s ease;
+
+    .sensor_label {
+        color: #fff;
+        font-weight: bold;
+        white-space: nowrap;
+        margin-right: 10px;
+        padding: 20px 18px;
+
+        &.ok {
+            background-color: rgb(31, 124, 124);
+        }
+
+        &.warn {
+            background-color: rgb(232, 153, 27);
+        }
+
+        &.alarm {
+            background-color: rgb(192, 28, 28);
+        }
+
+        &.supressed {
+            background-color: rgb(100, 100, 100);
+        }
+
+        &.cleared {
+            background-color: rgb(51, 198, 164);
+        }
+    }
+
+    .text {
+        font-size: 0.8em;
+        color: black;
+    }
+
+    .percent {
+        font-size: 2em;
+        font-weight: bold;
+        color: darkblue;
+        line-height: 1em;
+    }
+
+    button {
+        margin-left: auto;
+
+        &.secondary {
+            display: none;
+        }
+
+        &.primary {
+            display: block;
+        }
+    }
+
+    &.selected {
+
+        transform: translate(-15px, 0);
+        // transform: scale(1.05,1.1);
+        box-shadow:  0px 0px 7px 5px #FFF;
+        z-index: 1;
+
+        button {
+            &.secondary {
+                display: block;
+            }
+
+            &.primary {
+                display: none;
+            }
+        }
+    }
+}

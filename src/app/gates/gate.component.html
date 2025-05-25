@@ -1,0 +1,81 @@
+<div class="container d-flex justify-content-center align-items-center" #container>
+   
+    <button type="button" class="btn btn-primary step" [class.d-none]="view !== 'gate'" [disabled]="activeMessagesCount === 0" (click)="previous()"><</button>
+
+    <div class="videocontainer my-3" [class.alarm]="view === 'cockpit' && activeMessagesCount > 0 || view === 'gate' && selectedMessage()">
+        
+            <div class="bullet">{{ name }}</div>
+           
+            <app-video #videoapp [view]="view" [sensor_label]="name"></app-video>
+            
+            <div class="videoinfo">
+                @if(view === 'cockpit') {
+                    <div class="lastalarm">Letzter Alarm: 
+                        @if(parseDate(lastMessageDate)) {
+                            <span class="time alarm">{{ lastMessageDate | date:'mediumTime' }}</span>
+                        }
+                        <span *ngIf="activeMessagesCount === 0">keiner</span>
+                    </div>
+                    <div class="videoinfo d-flex justify-content-between align-items-center">
+                        <div class="d-flex align-items-center">
+                            <div class="counter mr-5">{{ activeMessagesCount }}</div>
+                            <div>
+                                <div>aktuelle</div>
+                                <div>Meldungen</div>
+                            </div>
+                        </div>
+                        <button mat-raised-button class="button-style" color="primary" (click)="proveGate()">Tor prüfen</button>
+                    </div>
+                }
+                @if(view === 'gate') {
+                    <div class="videoinfo d-flex justify-content-between align-items-center">
+                    @if(selectedMessage()){
+                        <div class="my-2">
+                            <div class="counter">{{ selectedMessage()?.object?.label }}
+                                @if(selectedMessage()?.state === cleared) {
+                                    <span class="small">Status: {{ selectedMessage()?.state }}, Kathegorie: {{ selectedMessage()?.category }}</span>
+                                }
+                            </div>
+                            <small>{{ selectedMessage()?.sensor_label }} &nbsp;-&nbsp; 
+                                {{ selectedMessage()?.timestamp | date:'mediumTime' }}  &nbsp;-&nbsp;  Frame: {{ selectedMessage()?.frame_id }} / {{ seconds }} 
+                                &nbsp;-&nbsp; MessageId: {{ selectedMessage()?.message_id }}
+                            </small>
+                        </div>
+                        @if(selectedMessage()?.state === active) {
+                            <div class="buttonlist">
+                                <button mat-raised-button class="button-style m-2" color="primary" (click)="maintain()">weiter</button>
+                                <button mat-raised-button class="button-style m-2 green" (click)="correctMessage(Cat.Identified)">richtig erkannt</button>
+                                <button mat-raised-button class="button-style m-2 red" (click)="correctMessage(Cat.Misidentified)">falsch erkannt</button>
+                                <button mat-raised-button class="button-style m-2 yellow" (click)="correctMessage(Cat.Irrelevant)">irrelevant</button>
+                            </div>
+                        }
+                    } @else {
+                        <div class="mb-2 ">
+                            <div class="zero">Keine gewählten Meldungen</div>
+                        </div>
+                        <div>
+                            <div class="buttonlist full m-2">
+                                <select class="form-control" autocomplete="on" (change)="selectObject($event)" [class.grey]="!selectedObjectKey">
+                                    <option value="null">Select Object</option>
+                                    @for (object of objectsToSelect; track $index) {
+                                        <option value="{{ $index }}">{{ object }}</option>
+                                    }
+                                </select>
+                                <button mat-raised-button class="button-style tsh m-2" color="primary"  (click)="takeTimeslot()" [disabled]="!selectedObjectKey">{{timeslotLabel}}</button>
+
+                        </div>
+                            <div class="buttonlist full">
+                                <button mat-raised-button class="button-style m-2" color="primary" (click)="resetTimeslot()" [disabled]="timeslotStartLabel === timeslotLabel">reset timeslot</button>
+                                <button mat-raised-button class="button-style m-2" color="primary" (click)="resume()">weiter</button>
+                                <!-- <button mat-raised-button class="button-style m-2 orange" (click)="sendTimeslot()" [disabled]="sendtimeslot">nicht erkannt</button> -->
+                            </div>
+                        </div>
+                    }
+                    </div>
+                }
+            </div>
+        </div>
+
+    <button type="button" class="btn btn-primary step" [class.d-none]="view !== 'gate'" [disabled]="activeMessagesCount < 1" (click)="next()">></button>
+</div>
+

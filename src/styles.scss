@@ -1,0 +1,228 @@
+/* You can add global styles to this file, and also import other style files */
+@import "bootstrap/dist/css/bootstrap.css";
+
+html,
+body {
+  height: 100%;
+  overflow: auto;
+  --mat-toolbar-standard-height: 64px;
+  --mat-toolbar-mobile-height: 64px;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-sidenav-content {
+  height: 75vh;
+}
+
+.mdc-snackbar {
+  --mdc-snackbar-supporting-text-color: white !important;
+  --mat-mdc-snack-bar-button-color: white !important;
+  white-space: pre-wrap;
+
+  //snackbar --> https://github.com/angular/components/issues/26928
+  &.snackbar {
+    &-success {
+      --mdc-snackbar-container-color: green !important;
+    }
+
+    &-warning {
+      --mdc-snackbar-container-color: orange !important;
+    }
+
+    &-fail {
+      --mdc-snackbar-container-color: red !important;
+    }
+
+    &-info {
+      --mdc-snackbar-container-color: #5555bb !important;
+    }
+  }
+}
+
+.dark {
+  .videoinfo {
+    .highlight {
+      color: #589af1 !important;
+    }
+  }
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-sidenav-container,
+.mat-sidenav-content,
+.mat-tab-body-content {
+  transform: none !important;
+}
+
+.gate {
+  .mdc-tab__text-label,
+  // overview tab
+  .mdc-list-item__primary-text {
+    // navitem
+    font-size: 0.93em;
+  }
+
+  sub {
+    display: none;
+  }
+
+  &.highlighted {
+    .mdc-list-item__primary-text,
+    // navitem
+    .mdc-tab__text-label {
+      // overview tab
+      font-size: 1em;
+      font-weight: bold;
+
+      sub {
+        display: inline;
+        color: violet;
+        position: relative;
+        left: 2px;
+        top: 6px;
+        font-size: 0.7em;
+      }
+    }
+  }
+}
+.overview {
+  position: relative;
+  .dummibuttons {
+    position: absolute;
+    bottom: 40px;
+    right: 10px;
+  }
+}
+
+.overview
+  .mat-mdc-tab-header.mat-mdc-tab-nav-bar-stretch-tabs
+  .mat-mdc-tab-link {
+  flex-grow: 0;
+
+  &.active {
+    border-bottom: 2px solid var(--mdc-tab-indicator-active-indicator-color);
+    font-weight: bold;
+  }
+}
+
+.mat-mdc-list-item.mdc-list-item.mat-mdc-list-item-interactive.mat-mdc-list-item-single-line {
+  &.active {
+    color: white;
+    background-color: #589af1;
+    font-weight: bold;
+  }
+}
+
+.button-style {
+  border-radius: 25px !important;
+  white-space: nowrap !important;
+  padding: 0px 15px !important;
+}
+
+// to avoid problems while prod built caused by external bound in css
+@font-face {
+  font-family: "Material Icons";
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialicons/v141/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2)
+    format("woff2");
+}
+
+.material-icons {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+}
+
+.p-dropdown-items {
+  padding-left: 0;
+}
+
+// .p-datatable>.p-datatable-wrapper {
+//   overflow: visible;
+// }
+
+.mat-accordion {
+  .mat-expansion-panel {
+    background-color: transparent;
+    box-shadow: none;
+
+    .mat-expansion-indicator svg {
+      fill: #589af1;
+    }
+
+    .mat-expansion-panel-header,
+    .mat-expansion-panel-body {
+      padding-left: 5px;
+    }
+  }
+}
+
+.mat-expansion-panel:has(:focus-visible),
+.videocontainer:has(:focus-visible),
+.mat-mdc-raised-button:focus-visible {
+  outline: thick double var(--mat-mdc-raised-button-color);
+  outline-style: groove;
+  outline-width: 5px;
+}
+
+.p-paginator-element.p-highlight {
+  zoom: 1.1;
+  font-weight: bold;
+}
+
+body:has(#journal-list) {
+  padding-top: 72px;
+
+  .mat-drawer-content h1,
+  .mat-toolbar,
+  .overview {
+    position: fixed;
+  }
+
+  .mat-toolbar {
+    z-index: 2;
+    top: 0;
+  }
+
+  .mat-drawer-content h1,
+  .overview {
+    top: 102px;
+    z-index: 1;
+    width: 100%;
+    background-color: var(--background-color);
+  }
+
+  .mat-drawer-content h1 {
+    top: 63px;
+    z-index: 1;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  #journal-list {
+    padding-top: 72px;
+  }
+}

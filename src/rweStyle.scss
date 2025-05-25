@@ -1,0 +1,296 @@
+@use '@angular/material' as mat;
+@include mat.core();
+
+/* Beneath I (who was ist? Wasn't me -Volker) have created some standard themes bases on the RWE standard colours document.*/
+/* Note that the themes I have created fit in to the existing Material styling */
+/* The following website was used to generate the code for the palettes below. */
+/*http://mcg.mbitson.com/#!?mcgpalette0=%231d4477*/
+/* RWE : These three code schemes were added as part of the IMET application */
+/*       Any colours used in an Angular app for RWE should have the palette set here in the standard way */
+
+$md-rwe-darkblue: (
+    50:#e4e9ef,
+    100:#bbc7d6,
+    200:#8ea2bb,
+    300:#617ca0,
+    400:#3f608b,
+    500:#1d4477,
+    600:#1a3e6f,
+    700:#153564,
+    800:#112d5a,
+    900:#0a1f47,
+    A100:#7ea3ff,
+    A200:#4b7fff,
+    A400:#185aff,
+    A700:#0049fd,
+    contrast: (50:#000000, 100:#000000, 200:#000000, 300:#ffffff, 400:#ffffff, 500:#ffffff, 600:#ffffff, 700:#ffffff, 800:#ffffff, 900:#ffffff, A100:#000000, A200:#ffffff, A400:#ffffff, A700:#ffffff, )
+);
+
+$md-rwe-lightblue: (
+    50:#e0f4f3,
+    100:#b3e3e2,
+    200:#80d0cf,
+    300:#4dbdbc,
+    400:#26afad,
+    500:#00a19f,
+    600:#009997,
+    700:#008f8d,
+    800:#008583,
+    900:#007472,
+    A100:#a2fffd,
+    A200:#6ffffc,
+    A400:#3cfffb,
+    A700:#23fffb,
+    contrast: (50:#000000, 100:#000000, 200:#000000, 300:#000000, 400:#000000, 500:#ffffff, 600:#ffffff, 700:#ffffff, 800:#ffffff, 900:#ffffff, A100:#000000, A200:#000000, A400:#000000, A700:#000000, )
+);
+
+$md-rwe-red: (
+    50:#fce7e8,
+    100:#f8c2c5,
+    200:#f39a9f,
+    300:#ee7179,
+    400:#eb525c,
+    500:#e7343f,
+    600:#e42f39,
+    700:#e02731,
+    800:#dd2129,
+    900:#d7151b,
+    A100:#ffffff,
+    A200:#ffd4d5,
+    A400:#ffa1a3,
+    A700:#ff878a,
+    contrast: (50:#000000, 100:#000000, 200:#000000, 300:#000000, 400:#000000, 500:#ffffff, 600:#ffffff, 700:#ffffff, 800:#ffffff, 900:#ffffff, A100:#000000, A200:#000000, A400:#000000, A700:#000000, )
+);
+
+//   How it works:
+//   @use '@angular/material' as mat;
+//   $red-palette, $pink-palette, $indigo-palette,
+//   $purple-palette, $deep-purple-palette, $blue-palette, $light-blue-palette, $cyan-palette,
+//   $brown-palette, $green-palette, $light-green-palette, $lime-palette, $yellow-palette,
+//   $amber-palette, $orange-palette, $deep-orange-palette, $brown-palette, $grey-palette,
+//   $gray-palette, $blue-grey-palette, $blue-gray-palette, $light-theme-background-palette,
+//   $dark-theme-background-palette, $light-theme-foreground-palette, $dark-theme-foreground-palette;
+
+// wrap it in css classes like the examples below f.e. .seventies-custom-theme
+// add .dark class for darkmode
+
+
+/* ======== Angular material custom themes ======== */
+/* RWE : The code below is the standard way of implementing theming in Angular Material. Lots of support for this on the web.
+         Apart from the colours in the grid, there should be no addtional colours added to the system.
+         This way, future updates will be easier.
+         Please do not add local colour styles to your HTML, use these
+*/
+
+// https://github.com/angular/components/blob/main/guides/duplicate-theming-styles.md
+// avoid warnings
+
+//// can be overwritten within the themes
+// --mat-toolbar-standard-height:64px;
+// --mat-toolbar-mobile-height: 64px;
+
+$my-custom-primary: mat.define-palette($md-rwe-darkblue);
+$my-custom-accent: mat.define-palette($md-rwe-lightblue, 100, 500, A100);
+$my-custom-warn: mat.define-palette($md-rwe-red);
+
+.rwe-custom-theme {
+ 
+    --videocontainer-bg-color: #fff;
+    --table-bg-color: #fff;
+    --msg-counter-color: #1d4477;
+    --alarm-color: rgb(201, 2, 2) !important;
+    --videobox-shadow: 0px 5px 15px #777;
+    --disabled-button-container-color: #ccc;
+    --disabled-button-text-color: #555;
+    --mat-mdc-raised-button-color: #3dc0f3;
+    --text-color: #000;
+    --filter-text-color: #fff;
+    --filter-bg-color: #1d4477;
+    --filter-item-hover-color: #134c97;
+    --filter-multiselect-icon-color: #fff;
+    --background-color: #dedede;
+
+    .btn.btn-primary {
+        background-color: #1d4477;
+    }
+
+    background-color: #dedede;
+
+    .mat-drawer-container {
+        background-color: transparent;
+    }
+
+    .mdc-list-item__primary-text,
+    .mdc-tab__text-label {
+        color: rgba(0, 0, 0, 0.8) !important;
+    }
+
+    $my-custom-theme: mat.define-light-theme((color: (primary: $my-custom-primary,
+                    accent: $my-custom-accent,
+                    warn: $my-custom-warn,
+                )));
+    @include mat.all-component-colors($my-custom-theme);
+    
+    .mat-mdc-select {
+        color: #000;
+    }
+
+    &.dark {
+
+        --videocontainer-bg-color: #666;
+        --table-bg-color: #4b5563;
+        --msg-counter-color: #99c3fa; 
+        --alarm-color: #fe0 !important;
+        --videobox-shadow: inset 2px 0px 23px #fff;
+        --disabled-button-container-color: #ccc;
+        --disabled-button-text-color: #555;
+        --mat-mdc-raised-button-color: #f06e17;
+        --text-color: #fff;
+        --background-color: #303030;
+        // --filter-text-color: #fff;
+        // --filter-bg-color: #4b5563;
+        // --filter-item-hover-color: #5f6977;
+        // --filter-multiselect-icon-color: #fff;
+
+        background-color: #303030;
+        
+        .mdc-list-item__primary-text,
+        .mdc-tab__text-label {
+            color: #fff !important;
+        }
+
+        $my-dark-custom-theme: mat.define-dark-theme((color: (primary: $my-custom-primary,
+                        accent: $my-custom-accent,
+                        warn: $my-custom-warn,
+                    )));
+        @include mat.all-component-colors($my-dark-custom-theme);
+
+        .mat-mdc-select {
+            color: #fff;
+        }
+
+        .mat-primary .mat-pseudo-checkbox-checked.mat-pseudo-checkbox-full {
+            background-color: #b3e3e2;
+        }
+
+        .mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled) .mdc-list-item__primary-text {
+            color: #b3e3e2;
+        }
+
+        .p-datatable .p-datatable-tbody>tr {
+            background-color: #4b5563;
+            color: #ffffff;
+        }
+
+        .p-paginator {
+            background-color: var(--mat-sidenav-content-background-color);
+
+            button,
+            .p-paginator-current {
+                background-color: var(--mat-sidenav-content-background-color);
+                color: white;
+            }
+
+
+            p-dropdown {
+                background-color: transparent;
+                color: white;
+
+                >* {
+                    background-color: transparent;
+                    color: white;
+                }
+
+                .p-dropdown-label,
+
+                .p-dropdown .p-dropdown-trigger {
+                    color: white
+                }
+
+                .p-dropdown-panel {
+                    background-color: #303030;
+
+
+                    .p-dropdown-items .p-dropdown-item {
+                        color: white;
+
+                        &.p-highlight {
+                            color: #97b1ff;
+                        }
+
+                        &:not(.p-highlight):not(.p-disabled):hover {
+                            background: black;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
+    .the-switcher .mat-mdc-slide-toggle .mdc-form-field {
+        color: #fff;
+    }
+}
+
+.seventies-custom-theme {
+
+    $my-custom-theme: mat.define-light-theme((color: (primary: mat.define-palette(mat.$deep-orange-palette),
+                    accent: mat.define-palette(mat.$light-green-palette),
+                    warn: mat.define-palette(mat.$brown-palette),
+                )));
+    @include mat.all-component-colors($my-custom-theme);
+
+    &.dark {
+        $my-dark-custom-theme: mat.define-dark-theme((color: (primary: mat.define-palette(mat.$deep-orange-palette),
+                        accent: mat.define-palette(mat.$light-green-palette),
+                        warn: mat.define-palette(mat.$brown-palette),
+                    )));
+        @include mat.all-component-colors($my-dark-custom-theme);
+    }
+}
+
+.sad-custom-theme {
+
+    $my-custom-theme: mat.define-light-theme((color: (primary: mat.define-palette(mat.$gray-palette),
+                    accent: mat.define-palette(mat.$blue-grey-palette),
+                    warn: mat.define-palette(mat.$blue-gray-palette),
+                )));
+    @include mat.all-component-colors($my-custom-theme);
+
+    &.dark {
+        $my-dark-custom-theme: mat.define-dark-theme((color: (primary: mat.define-palette(mat.$gray-palette),
+                        accent: mat.define-palette(mat.$blue-grey-palette),
+                        warn: mat.define-palette(mat.$blue-gray-palette),
+                    )));
+        @include mat.all-component-colors($my-dark-custom-theme);
+    }
+}
+
+.dark {
+    .p-tree {
+        background: transparent;
+        color: #fff;
+
+        .p-checkbox .p-checkbox-box {
+            background: transparent;
+        }
+    }
+
+    .form-container {
+        &:has(p-table) {
+        background: rgb(244, 244, 244);
+        }
+        .noentries {
+            color: #aaa;
+        }
+    }
+
+    app-confirm-dialog {
+        color: white;
+    }
+
+    .mat-datepicker-toggle {
+        color: rgba(0, 0, 0, 0.54) !important;
+    }
+}
