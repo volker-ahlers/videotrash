@@ -1,11 +1,16 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <button mat-icon-button (click)="toggleSidelement(sidenav);" aria-label="menu">
+    <button
+      mat-icon-button
+      (click)="toggleSidelement(sidenav)"
+      aria-label="menu"
+    >
       <mat-icon>menu</mat-icon>
     </button>
-    <span class="label">Waste Recognition System - Karnap</span>
+    <span class="label">KI Learning View</span>
     <span class="header-spacer"></span>
-    <mat-icon class="person" *ngIf="name !== ''">person</mat-icon><span>{{ name }}</span>
+    <mat-icon class="person" *ngIf="name !== ''">person</mat-icon
+    ><span>{{ name }}</span>
     <span class="menu-spacer"></span>
     <app-switcher class="the-switcher" labelPosition="before"></app-switcher>
   </mat-toolbar-row>
@@ -13,20 +18,34 @@
 <mat-sidenav-container>
   <mat-sidenav #sidenav dynamicWidth>
     <mat-nav-list (click)="sidenav.close()">
-      <a mat-list-item class="main" routerLink="/" routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: true }">Cockpit</a>
-        @for (stream of streams(); track stream.name;) {
-          <a mat-list-item [routerLink]="'/gate/' + stream.name" routerLinkActive="active" class="gate"
-            [appActiveMsgCnt]="stream.name" (click)="reset()">{{ stream.name }}
-            <sub></sub>
-          </a>
-        }
-      <a mat-list-item routerLink="journal" routerLinkActive="active">Journal</a>
-      <a mat-list-item href="{{doculink}}" target="_tab">Dokumentation</a>
+      <a
+        mat-list-item
+        class="main"
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >Cockpit</a
+      >
+      @for (stream of streams(); track stream.name;) {
+      <a
+        mat-list-item
+        [routerLink]="'/gate/' + stream.name"
+        routerLinkActive="active"
+        class="gate"
+        [appActiveMsgCnt]="stream.name"
+        (click)="reset()"
+        >{{ stream.name }}
+        <sub></sub>
+      </a>
+      }
+      <a mat-list-item routerLink="journal" routerLinkActive="active"
+        >Journal</a
+      >
+      <a mat-list-item href="{{ doculink }}" target="_tab">Dokumentation</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <h1 class="h5">Waste Recognition System - Karnap</h1>
+    <h1 class="h5">KI Learning View</h1>
     <main class="mt-3" role="main">
       <app-overview #overview></app-overview>
     </main>
