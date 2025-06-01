@@ -8,12 +8,11 @@ node_modules/
 dist/
 
 # Ignore local configuration files
-src/environments/*.ts
+# src/environments/*.ts
 
 # Ignore logs and other build artifacts
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
 .angular
