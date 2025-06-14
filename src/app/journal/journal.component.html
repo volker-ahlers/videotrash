@@ -1,105 +1,107 @@
 <div class="form-container" id="journal-list">
-    @if(messages.length){
-    <p-table 
-        #dt
-        [value]="messages" 
-        styleClass="p-datatable-striped" 
-        [resizableColumns]="true"
-        [paginator]="true" 
-        [rows]="10" 
-        [showCurrentPageReport]="true"
-        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-        [rowsPerPageOptions]="[10,25,50]" 
-        [(first)]="first"
-    >
-        <ng-template pTemplate="header">
-            <tr>
-                <th pResizableColumn pSortableColumn="sensor_label" class="filteroptions" style="max-width: 200px;">
-                    <div>
-                        <app-panelfilter [options]="gateList" field="sensor_label" placeholder="Gate"></app-panelfilter>
-                        <p-sortIcon field="sensor_label"></p-sortIcon>
-                    </div>
-                </th>
-                <th pResizableColumn pSortableColumn="message_id" style="width: 350px;">Message ID<p-columnFilter
-                        type="text" field="message_id" display="menu"></p-columnFilter><p-sortIcon
-                        field="message_id"></p-sortIcon>
-                </th>
-                <th pResizableColumn pSortableColumn="timestamp">Timestamp<p-columnFilter type="text" field="timestamp"
-                        display="menu"></p-columnFilter><p-sortIcon field="timestamp"></p-sortIcon>
-                </th>
-                <th pResizableColumn pSortableColumn="lpn" class="filteroptions">
-                    <div>
-                    <app-panelfilter [options]="lpnList" field="lpn"
-                        placeholder="License Plate"  [max]="3"></app-panelfilter>
-                    <p-sortIcon field="lpn"></p-sortIcon>
-                </div>
-                    </th>
+  @if(messages.length){
+    <p-table
+      #dt
+      [value]="messages"
+      styleClass="p-datatable-striped"
+      [resizableColumns]="true"
+      [paginator]="true"
+      [rows]="10"
+      [showCurrentPageReport]="true"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+      [rowsPerPageOptions]="[10,25,50]"
+      [(first)]="first"
+      >
+      <ng-template pTemplate="header">
+        <tr>
+          <th pResizableColumn pSortableColumn="sensor_label" class="filteroptions" style="max-width: 200px;">
+            <div>
+              <app-panelfilter [options]="gateList" field="sensor_label" placeholder="Gate"></app-panelfilter>
+              <p-sortIcon field="sensor_label"></p-sortIcon>
+            </div>
+          </th>
+          <th pResizableColumn pSortableColumn="message_id" style="width: 350px;">Message ID<p-columnFilter
+          type="text" field="message_id" display="menu"></p-columnFilter><p-sortIcon
+        field="message_id"></p-sortIcon>
+      </th>
+      <th pResizableColumn pSortableColumn="timestamp">Timestamp<p-columnFilter type="text" field="timestamp"
+        display="menu"></p-columnFilter><p-sortIcon field="timestamp"></p-sortIcon>
+      </th>
+      <th pResizableColumn pSortableColumn="lpn" class="filteroptions">
+        <div>
+          <app-panelfilter [options]="lpnList" field="lpn"
+          placeholder="License Plate"  [max]="3"></app-panelfilter>
+          <p-sortIcon field="lpn"></p-sortIcon>
+        </div>
+      </th>
 
-                <th pResizableColumn pSortableColumn="object.label" class="filteroptions">
-                    <div>
-                        <app-panelfilter [options]="labelList" field="object.label"
-                            placeholder="Label"></app-panelfilter>
-                        <p-sortIcon field="object.label"></p-sortIcon>
-                    </div>
-                </th>
-                <th pResizableColumn pSortableColumn="frame_id">Frame_id<p-columnFilter type="text" field="frame_id"
-                        display="menu"></p-columnFilter><p-sortIcon field="frame_id"></p-sortIcon></th>
-                <th pResizableColumn pSortableColumn="state" class="filteroptions">
-                    <div>
-                        <app-panelfilter [options]="stateList" field="state" placeholder="Status" [max]="3"></app-panelfilter>
-                        <p-sortIcon field="state"></p-sortIcon>
-                    </div>
-                </th>
-                <th pResizableColumn pSortableColumn="category" class="filteroptions">
-                    <div>
-                        <app-panelfilter [options]="catList" field="category" placeholder="Category" [max]="5"></app-panelfilter>
-                        <p-sortIcon field="category"></p-sortIcon>
-                    </div>
-                </th>
-                <th pResizableColumn>Go to Frame</th>
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-message>
-            <tr>
-                <td>{{ message.sensor_label }}</td>
-                <td>{{message.message_id}}</td>
-                <td>{{ message.timestamp | date:'longTime' }}</td>
-                <td>{{ message.lpn }}</td>
-                <td>{{ message.object.label }}</td>
-                <td>{{ message.frame_id }}</td>
-                <td>{{ message.state }}</td>
-                <td>{{ message.category }}</td>
-                <td>
-                    <button type="button" class="btn"
-                        [ngClass]="message.state === active ? 'btn-primary' : 'btn-secondary'"
-                        (click)="gotoMessage(message)">go to <em>{{message.object.label}}</em></button>
-                </td>
-            </tr>
-        </ng-template>
+      <th pResizableColumn pSortableColumn="object.label" class="filteroptions">
+        <div>
+          <app-panelfilter [options]="labelList" field="object.label"
+          placeholder="Label"></app-panelfilter>
+          <p-sortIcon field="object.label"></p-sortIcon>
+        </div>
+      </th>
+      <th pResizableColumn pSortableColumn="frame_id">Frame_id<p-columnFilter type="text" field="frame_id"
+        display="menu"></p-columnFilter><p-sortIcon field="frame_id"></p-sortIcon></th>
+        <th pResizableColumn pSortableColumn="state" class="filteroptions">
+          <div>
+            <app-panelfilter [options]="stateList" field="state" placeholder="Status" [max]="3"></app-panelfilter>
+            <p-sortIcon field="state"></p-sortIcon>
+          </div>
+        </th>
+        <th pResizableColumn pSortableColumn="category" class="filteroptions">
+          <div>
+            <app-panelfilter [options]="catList" field="category" placeholder="Category" [max]="5"></app-panelfilter>
+            <p-sortIcon field="category"></p-sortIcon>
+          </div>
+        </th>
+        <th pResizableColumn>Go to Frame</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-message>
+      <tr>
+        <td>{{ message.sensor_label }}</td>
+        <td>{{message.message_id}}</td>
+        <td>{{ message.timestamp | date:'longTime' }}</td>
+        <td>{{ message.lpn }}</td>
+        <td>{{ message.object.label }}</td>
+        <td>{{ message.frame_id }}</td>
+        <td>{{ message.state }}</td>
+        <td>{{ message.category }}</td>
+        <td>
+          <button type="button" class="btn"
+            [ngClass]="message.state === active ? 'btn-primary' : 'btn-secondary'"
+            (click)="gotoMessage(message)">go to <em>{{message.object.label}}</em></button>
+          </td>
+        </tr>
+      </ng-template>
     </p-table>
-    } @else {
+  } @else {
     <div class="noentries">No entries found</div>
-    }
+  }
 
-    <div class="buttonlist">
-        <button class="btn btn-primary" title="Clear all Filters" aria-label="Clear all Filters" (click)="clear()" >Clear all Filters</button>
-        <button type="button" class="btn btn-primary" title="Go to last selected page"  aria-label="Go to last selected page"(click)="setFirst()" *ngIf="messages.length">Last selected&nbsp;&nbsp;
-            <mat-icon>backup</mat-icon>
-        </button>
-        <!-- {{ first}} {{ selectedPage }} -->
-        @if(automaticrefresh){
-        <button type="button" class="btn btn-primary" title="automatic refresh is on, switch it off" aria-label="automatic refresh is on, switch it off"   (click)="toggleAutomaticRefreshing()">
-            <mat-icon>alarm</mat-icon>
-        </button>
-        } @else {
-        <button type="button" class="btn btn-primary" title="automatic refresh is off, switch it on" aria-label="automatic refresh is off, switch it on" (click)="toggleAutomaticRefreshing()">
-            auto <mat-icon>alarm_off</mat-icon>
-        </button>
-        }
-        @if(messages.length !== temp_messages.length){
-            <button type="button" class="btn btn-primary" (click)="tableRefresh()" title="new messages are available" aria-label="refresh table">
-                messages <mat-icon>autorenew</mat-icon> changed
-            </button>
-        }
-    </div>
+  <div class="buttonlist">
+    <button class="btn btn-primary" title="Clear all Filters" aria-label="Clear all Filters" (click)="clear()" >Clear all Filters</button>
+    @if (messages.length) {
+      <button type="button" class="btn btn-primary" title="Go to last selected page"  aria-label="Go to last selected page"(click)="setFirst()">Last selected&nbsp;&nbsp;
+        <mat-icon>backup</mat-icon>
+      </button>
+    }
+    <!-- {{ first}} {{ selectedPage }} -->
+    @if(automaticrefresh){
+      <button type="button" class="btn btn-primary" title="automatic refresh is on, switch it off" aria-label="automatic refresh is on, switch it off"   (click)="toggleAutomaticRefreshing()">
+        <mat-icon>alarm</mat-icon>
+      </button>
+    } @else {
+      <button type="button" class="btn btn-primary" title="automatic refresh is off, switch it on" aria-label="automatic refresh is off, switch it on" (click)="toggleAutomaticRefreshing()">
+        auto <mat-icon>alarm_off</mat-icon>
+      </button>
+    }
+    @if(messages.length !== temp_messages.length){
+      <button type="button" class="btn btn-primary" (click)="tableRefresh()" title="new messages are available" aria-label="refresh table">
+        messages <mat-icon>autorenew</mat-icon> changed
+      </button>
+    }
+  </div>
 </div>

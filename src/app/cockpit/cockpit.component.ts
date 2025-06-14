@@ -1,5 +1,5 @@
 import { Component, Input, Signal, effect, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { MessageComponent } from '../messages/message.component';
 import { GateComponent } from '../gates/gate.component';
 import { MessageService } from '../services/message.service';
@@ -11,7 +11,7 @@ import { CopyObject } from '../more/helper';
 
 @Component({
     selector: 'app-cockpit',
-    imports: [CommonModule, GateComponent, MessageComponent, MatExpansionModule],
+    imports: [GateComponent, MessageComponent, MatExpansionModule],
     templateUrl: './cockpit.component.html',
     styleUrl: './cockpit.component.scss'
 })

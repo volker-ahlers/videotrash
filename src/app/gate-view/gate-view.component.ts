@@ -1,5 +1,5 @@
 import { Component, Signal, ViewChild, effect, inject, ElementRef, AfterViewInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { GateComponent } from '../gates/gate.component';
 import { MessageComponent } from '../messages/message.component';
 import { ActivatedRoute } from '@angular/router';
@@ -8,7 +8,7 @@ import { IMessage } from '../more/types';
 
 @Component({
     selector: 'app-gate-view',
-    imports: [CommonModule, GateComponent, MessageComponent],
+    imports: [GateComponent, MessageComponent],
     templateUrl: './gate-view.component.html',
     styleUrl: './gate-view.component.scss'
 })

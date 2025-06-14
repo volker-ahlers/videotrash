@@ -6,7 +6,7 @@ import {
   effect,
   inject,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { MatButtonModule } from '@angular/material/button';
 import { MessageService } from '../services/message.service';
 import { IMessage, IStream } from '../more/types';
@@ -16,7 +16,7 @@ import Hls from 'hls.js';
 
 @Component({
     selector: 'app-video',
-    imports: [CommonModule, MatButtonModule],
+    imports: [MatButtonModule],
     templateUrl: './video.component.html',
     styleUrls: ['./video.component.scss']
 })

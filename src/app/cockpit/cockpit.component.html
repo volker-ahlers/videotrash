@@ -2,34 +2,37 @@
   <div class="col-xl-8 col-xxl-9">
     <div class="row">
       @for (stream of streams(); track stream.name) {
-      <app-gate [stream]="stream" [name]="stream.name" class="col-xl-6 col-xxl-4"></app-gate>
+        <app-gate [stream]="stream" [name]="stream.name" class="col-xl-6 col-xxl-4"></app-gate>
       }
     </div>
   </div>
 
-  <div class="col-xl-4 col-xxl-3" *ngIf="filteredMsgs.length">
-    <div class="object mt-3">
-      <div><strong>Journal</strong></div>
-      <div>Meldungen</div>
-
-      <mat-accordion multi="false" role="region">
-        @for (gate of filteredMsgs; track gate.name) {
-          @if(gate.messages.length){
-          <mat-expansion-panel [disabled]="gate.messages.length === 1">
-            <mat-expansion-panel-header role="link">
-              <mat-panel-title>
-                <app-message [message]="gate.messages[0]" showInfo="cockpit" (click)="goTo(gate.name)" [step]="0"></app-message>
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-            <div class="messagesList">
-              @for (msg of gate.messages; track msg.message_id; ) {
-              <app-message *ngIf="!$first" [message]="msg" showInfo="cockpit" (click)="goTo(gate.name)" [step]="$index"></app-message>
-              }
-            </div>
-          </mat-expansion-panel>
+  @if (filteredMsgs.length) {
+    <div class="col-xl-4 col-xxl-3">
+      <div class="object mt-3">
+        <div><strong>Journal</strong></div>
+        <div>Meldungen</div>
+        <mat-accordion multi="false" role="region">
+          @for (gate of filteredMsgs; track gate.name) {
+            @if(gate.messages.length){
+              <mat-expansion-panel [disabled]="gate.messages.length === 1">
+                <mat-expansion-panel-header role="link">
+                  <mat-panel-title>
+                    <app-message [message]="gate.messages[0]" showInfo="cockpit" (click)="goTo(gate.name)" [step]="0"></app-message>
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="messagesList">
+                  @for (msg of gate.messages; track msg.message_id; ) {
+                    @if (!$first) {
+                      <app-message [message]="msg" showInfo="cockpit" (click)="goTo(gate.name)" [step]="$index"></app-message>
+                    }
+                  }
+                </div>
+              </mat-expansion-panel>
+            }
           }
-        }
-      </mat-accordion>
+        </mat-accordion>
+      </div>
     </div>
-  </div>
+  }
 </div>
