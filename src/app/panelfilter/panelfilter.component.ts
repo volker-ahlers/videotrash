@@ -5,11 +5,10 @@ import { MultiSelectModule } from 'primeng/multiselect';
 import { DropdownModule } from 'primeng/dropdown';
 
 @Component({
-  selector: 'app-panelfilter',
-  standalone: true,
-  imports: [TableModule, MultiSelectModule, DropdownModule, FormsModule],
-  templateUrl: './panelfilter.component.html',
-  styleUrl: './panelfilter.component.scss'
+    selector: 'app-panelfilter',
+    imports: [TableModule, MultiSelectModule, DropdownModule, FormsModule],
+    templateUrl: './panelfilter.component.html',
+    styleUrl: './panelfilter.component.scss'
 })
 export class PanelfilterComponent {
 

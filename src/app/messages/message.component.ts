@@ -6,14 +6,13 @@ import { MessageService } from '../services/message.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-message',
-  standalone: true,
-  imports: [
-    CommonModule,
-    MatButtonModule
-  ],
-  templateUrl: './message.component.html',
-  styleUrls: ['./message.component.scss'],
+    selector: 'app-message',
+    imports: [
+        CommonModule,
+        MatButtonModule
+    ],
+    templateUrl: './message.component.html',
+    styleUrls: ['./message.component.scss']
 })
 export class MessageComponent {
 

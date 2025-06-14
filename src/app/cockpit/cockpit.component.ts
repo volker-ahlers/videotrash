@@ -10,11 +10,10 @@ import { MatAccordion, MatExpansionModule } from '@angular/material/expansion';
 import { CopyObject } from '../more/helper';
 
 @Component({
-  selector: 'app-cockpit',
-  standalone: true,
-  imports: [CommonModule, GateComponent, MessageComponent, MatExpansionModule],
-  templateUrl: './cockpit.component.html',
-  styleUrl: './cockpit.component.scss'
+    selector: 'app-cockpit',
+    imports: [CommonModule, GateComponent, MessageComponent, MatExpansionModule],
+    templateUrl: './cockpit.component.html',
+    styleUrl: './cockpit.component.scss'
 })
 export class CockpitComponent {
 
