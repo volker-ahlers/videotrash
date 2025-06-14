@@ -1,22 +1,64 @@
 <div class="overview">
   @if(!environment.production){
-    <div class="d-flex justify-content-end dummibuttons">
-      <button mat-raised-button class="button-style mx-3" color="primary" (click)="addMessage()">Add Message</button>
-      <button mat-raised-button class="button-style mx-3" color="primary" (click)="clearMessages()">Delete
-        Messages</button>
-    </div>
+  <div class="d-flex justify-content-end dummibuttons">
+    @if (!messaging) {
+    <button
+      mat-raised-button
+      class="button-style mx-3"
+      color="primary"
+      (click)="startMessaging()"
+    >
+      Start Messaging
+    </button>
+    } @else {
+    <button
+      mat-raised-button
+      class="button-style mx-3"
+      color="primary"
+      (click)="stopMessaging()"
+    >
+      Stop Messaging
+    </button>
+    }
+    <button
+      mat-raised-button
+      class="button-style mx-3"
+      color="primary"
+      (click)="clearMessages()"
+    >
+      Delete Messages
+    </button>
+  </div>
   }
 
   <nav mat-tab-nav-bar [tabPanel]="tabPanel">
-    <a mat-tab-link routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="reset()">
+    <a
+      mat-tab-link
+      routerLink="/"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      (click)="reset()"
+    >
       Cockpit
     </a>
     @for (stream of streams(); track stream.name;) {
-      <a mat-tab-link [routerLink]="'/gate/' + stream.name" routerLinkActive="active" (click)="reset()" class="gate" [appActiveMsgCnt]="stream.name">
-        {{ stream.name }} <sub class="sub"></sub>
-      </a>
-      }
-    <a mat-tab-link routerLink="/journal" routerLinkActive="active" (click)="reset()">
+    <a
+      mat-tab-link
+      [routerLink]="'/gate/' + stream.name"
+      routerLinkActive="active"
+      (click)="reset()"
+      class="gate"
+      [appActiveMsgCnt]="stream.name"
+    >
+      {{ stream.name }} <sub class="sub"></sub>
+    </a>
+    }
+    <a
+      mat-tab-link
+      routerLink="/journal"
+      routerLinkActive="active"
+      (click)="reset()"
+    >
       Journal
     </a>
   </nav>
