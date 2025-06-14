@@ -1,8 +1,11 @@
 app-message {
-    width: 100%;
+  width: 100%;
 }
 
 .messagesList {
-    max-height: 50vh;
-    overflow-y: auto;
+  max-height: 50vh;
+  overflow-y: auto;
+}
+.mat-expansion-panel-header {
+  height: var(--mat-expansion-header-collapsed-state-height, 80px);
 }
