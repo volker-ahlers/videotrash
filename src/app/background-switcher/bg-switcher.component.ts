@@ -2,9 +2,10 @@ import { Component, Input } from '@angular/core';
 
 
 @Component({
-  selector: 'app-switcher',
-  templateUrl: './bg-switcher.component.html',
-  styleUrls: ['./bg-switcher.component.scss']
+    selector: 'app-switcher',
+    templateUrl: './bg-switcher.component.html',
+    styleUrls: ['./bg-switcher.component.scss'],
+    standalone: false
 })
 export class BgSwitcherComponent {
 
