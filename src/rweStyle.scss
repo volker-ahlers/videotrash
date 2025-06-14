@@ -1,5 +1,6 @@
 @use '@angular/material' as mat;
-@include mat.core();
+@include mat.elevation-classes();
+@include mat.app-background();
 
 /* Beneath I (who was ist? Wasn't me -Volker) have created some standard themes bases on the RWE standard colours document.*/
 /* Note that the themes I have created fit in to the existing Material styling */
