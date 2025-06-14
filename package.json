@@ -34,7 +34,7 @@
     "html2canvas": "^1.4.1",
     "ngx-mqtt": "^17.0.0",
     "primeicons": "^7.0.0",
-    "primeng": "^17.18.11",
+    "primeng": "^18.0.2",
     "rxjs": "~7.8",
     "tslib": "^2.3.0",
     "uuid": "^9.0.1",
