@@ -89,9 +89,9 @@ $md-rwe-red: (
 // --mat-toolbar-standard-height:64px;
 // --mat-toolbar-mobile-height: 64px;
 
-$my-custom-primary: mat.define-palette($md-rwe-darkblue);
-$my-custom-accent: mat.define-palette($md-rwe-lightblue, 100, 500, A100);
-$my-custom-warn: mat.define-palette($md-rwe-red);
+$my-custom-primary: mat.m2-define-palette($md-rwe-darkblue);
+$my-custom-accent: mat.m2-define-palette($md-rwe-lightblue, 100, 500, A100);
+$my-custom-warn: mat.m2-define-palette($md-rwe-red);
 
 .rwe-custom-theme {
  
@@ -125,7 +125,7 @@ $my-custom-warn: mat.define-palette($md-rwe-red);
         color: rgba(0, 0, 0, 0.8) !important;
     }
 
-    $my-custom-theme: mat.define-light-theme((color: (primary: $my-custom-primary,
+    $my-custom-theme: mat.m2-define-light-theme((color: (primary: $my-custom-primary,
                     accent: $my-custom-accent,
                     warn: $my-custom-warn,
                 )));
@@ -159,7 +159,7 @@ $my-custom-warn: mat.define-palette($md-rwe-red);
             color: #fff !important;
         }
 
-        $my-dark-custom-theme: mat.define-dark-theme((color: (primary: $my-custom-primary,
+        $my-dark-custom-theme: mat.m2-define-dark-theme((color: (primary: $my-custom-primary,
                         accent: $my-custom-accent,
                         warn: $my-custom-warn,
                     )));
@@ -235,16 +235,16 @@ $my-custom-warn: mat.define-palette($md-rwe-red);
 
 .seventies-custom-theme {
 
-    $my-custom-theme: mat.define-light-theme((color: (primary: mat.define-palette(mat.$deep-orange-palette),
-                    accent: mat.define-palette(mat.$light-green-palette),
-                    warn: mat.define-palette(mat.$brown-palette),
+    $my-custom-theme: mat.m2-define-light-theme((color: (primary: mat.m2-define-palette(mat.$m2-deep-orange-palette),
+                    accent: mat.m2-define-palette(mat.$m2-light-green-palette),
+                    warn: mat.m2-define-palette(mat.$m2-brown-palette),
                 )));
     @include mat.all-component-colors($my-custom-theme);
 
     &.dark {
-        $my-dark-custom-theme: mat.define-dark-theme((color: (primary: mat.define-palette(mat.$deep-orange-palette),
-                        accent: mat.define-palette(mat.$light-green-palette),
-                        warn: mat.define-palette(mat.$brown-palette),
+        $my-dark-custom-theme: mat.m2-define-dark-theme((color: (primary: mat.m2-define-palette(mat.$m2-deep-orange-palette),
+                        accent: mat.m2-define-palette(mat.$m2-light-green-palette),
+                        warn: mat.m2-define-palette(mat.$m2-brown-palette),
                     )));
         @include mat.all-component-colors($my-dark-custom-theme);
     }
@@ -252,16 +252,16 @@ $my-custom-warn: mat.define-palette($md-rwe-red);
 
 .sad-custom-theme {
 
-    $my-custom-theme: mat.define-light-theme((color: (primary: mat.define-palette(mat.$gray-palette),
-                    accent: mat.define-palette(mat.$blue-grey-palette),
-                    warn: mat.define-palette(mat.$blue-gray-palette),
+    $my-custom-theme: mat.m2-define-light-theme((color: (primary: mat.m2-define-palette(mat.$m2-gray-palette),
+                    accent: mat.m2-define-palette(mat.$m2-blue-grey-palette),
+                    warn: mat.m2-define-palette(mat.$m2-blue-gray-palette),
                 )));
     @include mat.all-component-colors($my-custom-theme);
 
     &.dark {
-        $my-dark-custom-theme: mat.define-dark-theme((color: (primary: mat.define-palette(mat.$gray-palette),
-                        accent: mat.define-palette(mat.$blue-grey-palette),
-                        warn: mat.define-palette(mat.$blue-gray-palette),
+        $my-dark-custom-theme: mat.m2-define-dark-theme((color: (primary: mat.m2-define-palette(mat.$m2-gray-palette),
+                        accent: mat.m2-define-palette(mat.$m2-blue-grey-palette),
+                        warn: mat.m2-define-palette(mat.$m2-blue-gray-palette),
                     )));
         @include mat.all-component-colors($my-dark-custom-theme);
     }
