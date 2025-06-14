@@ -32,7 +32,7 @@ export class AppComponent {
   debug: boolean = false;
 
   constructor() {
-    this.ws.doSubscribe();
+    // this.ws.doSubscribe(); // no service available
   }
 
   ngOnInit() {
