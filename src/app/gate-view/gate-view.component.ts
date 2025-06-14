@@ -7,11 +7,10 @@ import { MessageService } from '../services/message.service';
 import { IMessage } from '../more/types';
 
 @Component({
-  selector: 'app-gate-view',
-  standalone: true,
-  imports: [CommonModule, GateComponent, MessageComponent],
-  templateUrl: './gate-view.component.html',
-  styleUrl: './gate-view.component.scss'
+    selector: 'app-gate-view',
+    imports: [CommonModule, GateComponent, MessageComponent],
+    templateUrl: './gate-view.component.html',
+    styleUrl: './gate-view.component.scss'
 })
 export class GateViewComponent implements AfterViewInit {
 

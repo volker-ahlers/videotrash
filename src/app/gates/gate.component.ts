@@ -12,15 +12,14 @@ import { Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-gate',
-  standalone: true,
-  imports: [
-    CommonModule,
-    VideoComponent,
-    MatButtonModule
-  ],
-  templateUrl: './gate.component.html',
-  styleUrls: ['./gate.component.scss']
+    selector: 'app-gate',
+    imports: [
+        CommonModule,
+        VideoComponent,
+        MatButtonModule
+    ],
+    templateUrl: './gate.component.html',
+    styleUrls: ['./gate.component.scss']
 })
 export class GateComponent {
 
