@@ -10,9 +10,10 @@ import { MessagesDummiService } from '../services/messagesDummi.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-overview',
-  templateUrl: './overview.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-overview',
+    templateUrl: './overview.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class OverviewComponent {
   messageService: MessageService = inject(MessageService);

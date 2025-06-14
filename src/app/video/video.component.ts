@@ -15,11 +15,10 @@ import html2canvas from 'html2canvas';
 import Hls from 'hls.js';
 
 @Component({
-  selector: 'app-video',
-  standalone: true,
-  imports: [CommonModule, MatButtonModule],
-  templateUrl: './video.component.html',
-  styleUrls: ['./video.component.scss'],
+    selector: 'app-video',
+    imports: [CommonModule, MatButtonModule],
+    templateUrl: './video.component.html',
+    styleUrls: ['./video.component.scss']
 })
 export class VideoComponent {
   @ViewChild('hlsvideo', { static: true }) hlsvideo!: any;

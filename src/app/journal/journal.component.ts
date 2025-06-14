@@ -10,11 +10,10 @@ import { Router } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
-  selector: 'app-journal',
-  standalone: true,
-  imports: [CommonModule, TableModule, RouterModule, PanelfilterComponent, MatIconModule],
-  templateUrl: './journal.component.html',
-  styleUrl: './journal.component.scss'
+    selector: 'app-journal',
+    imports: [CommonModule, TableModule, RouterModule, PanelfilterComponent, MatIconModule],
+    templateUrl: './journal.component.html',
+    styleUrl: './journal.component.scss'
 })
 export class JournalComponent {
 
