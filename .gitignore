@@ -3,9 +3,10 @@ Hier ist ein einfaches `.gitignore`-Template für ein Angular-Projekt:
 ```gitignore
 # Ignore node_modules folder
 node_modules/
-
+package-lock.json
 # Ignore built files
 dist/
+
 
 # Ignore local configuration files
 # src/environments/*.ts
